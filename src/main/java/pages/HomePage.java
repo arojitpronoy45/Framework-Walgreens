@@ -16,18 +16,18 @@ public class HomePage {
 
 	}
 
-	@FindBy(id = "cms-login-submit")
-	WebElement loginButton;
+	@FindBy(id = "submit_btn")
+	WebElement signIn;
 
 	@FindBy(name = "user-d")
 	WebElement userIdElement;
 
-	public void clickLoginButton() throws InterruptedException {
-		loginButton.click();
+	public void clickSignInButton() throws InterruptedException {
+		signIn.click();
 		Thread.sleep(5000);
 	}
 
 	public void clickUserId() {
-
+		
 	}
 }
