@@ -4,10 +4,12 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
 
 public class BaseClass {
@@ -18,8 +20,11 @@ public class BaseClass {
 	@BeforeMethod
 	public void setUP() {
 
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Johns\\eclipse-workspace\\walgreens\\driver\\chromedriver.exe");
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/driver/geckodriver.exe");
+		//WebDriverManager.chromedriver().setup();
+		driver = new FirefoxDriver();
+		//driver = new EdgeDriver();
+		//driver = new ChromeDriver();
 		driver.manage().window().fullscreen();
 		driver.manage().deleteAllCookies();
 		driver.get("https://www.walgreens.com/login.jsp?ru=%2F");
