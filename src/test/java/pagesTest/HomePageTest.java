@@ -1,6 +1,8 @@
 package pagesTest;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v117.tethering.Tethering;
 import org.testng.annotations.Test;
 
 import baseUtil.BaseClass;
@@ -70,11 +72,40 @@ public class HomePageTest extends BaseClass {
 		boolean loginButtonEnabled = driver.findElement(By.id("submit_btn")).isEnabled();
 		System.out.println("Is the sign in Button Enabled? Ans: " + loginButtonEnabled);
 	}
-	@Test (enabled = true)
+	@Test (enabled = false)
 	public void use_of_isSelected_in_check_box () throws InterruptedException {
 		boolean checkBoxSelected = driver.findElement(By.xpath("//input[@id='ShowCharacter']")).isSelected();
 		System.out.println("Is the CheckBox selected? Ans: " + checkBoxSelected);
 		driver.findElement(By.xpath("//input[@id='ShowCharacter']")).click();
 		Thread.sleep(5000);
+	}
+	@Test(enabled = false)
+	public void getCurrentMethod () {
+		WebElement value1 = driver.findElement(By.xpath("//button[text()='Create a new account']"));
+		System.out.println("The value of the id is: " + value1);
+	}
+	@Test(enabled = false)
+	public void clearMethod() throws InterruptedException{
+		driver.findElement(By.xpath("//input[@id='user_name']")).isDisplayed();
+		driver.findElement(By.xpath("//input[@id='user_name']")).sendKeys("AROJITPRONOY");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//input[@id='user_name']")).clear();
+		Thread.sleep(4000);
+		
+	}
+	@Test(enabled = true)
+	public void gettext () throws InterruptedException {
+		
+		driver.findElement(By.xpath("//input[@id='user_name']")).isDisplayed();
+		driver.findElement(By.xpath("//input[@id='user_name']")).sendKeys("AROJITPRONOY");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//input[@id='user_name']")).clear();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//input[@id='user_name']")).sendKeys("AROJITPRONOY");
+		Thread.sleep(4000);
+		WebElement loginButton = driver.findElement(By.id("submit_btn"));
+		System.out.println("The text for the WebElement is: " + loginButton.getText());
+		driver.findElement(By.id("submit_btn")).click();
+		Thread.sleep(4000);
 	}
 }
