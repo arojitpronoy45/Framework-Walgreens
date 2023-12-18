@@ -89,6 +89,14 @@ public class HomePageTest extends BaseClass {
 		WebElement value1 = driver.findElement(By.xpath("//button[text()='Create a new account']"));
 		System.out.println("The value of the id is: " + value1);
 	}
+	@Test(enabled = true)
+	public void use_of_getCurrentURL_method () throws InterruptedException {
+		driver.findElement(By.id("create_btn")).click();
+		Thread.sleep(4000);
+		System.out.println("The current URL is: " + driver.getCurrentUrl());
+		System.out.println("The Title of the page is: " + driver.getTitle());
+	}
+
 	@Test(enabled = false)
 	public void clearMethod() throws InterruptedException{
 		driver.findElement(By.xpath("//input[@id='user_name']")).isDisplayed();
@@ -113,8 +121,7 @@ public class HomePageTest extends BaseClass {
 		driver.findElement(By.id("submit_btn")).click();
 		Thread.sleep(4000);
 	}
-	
-//--------------------------------------------------------------------------------------------------------------------------------------
+
 	@Test(enabled = false)
 	public void use_of_sendKeys_method () throws InterruptedException {
 		driver.findElement(By.xpath("//input[@id='user_name']")).click();
@@ -155,7 +162,7 @@ public class HomePageTest extends BaseClass {
 		
 	}
 	
-	@Test(enabled = false)
+	/*@Test(enabled = false)
 	public void use_of_getTitle_method_with_assertion() throws InterruptedException {
 		String actual = driver.getTitle();
 		System.out.println("The title of the Page is: " + actual);		
@@ -229,5 +236,6 @@ public class HomePageTest extends BaseClass {
 		for(int i =0; i <listOfAboutUs.size(); i++) {
 			System.out.println(listOfAboutUs.get(i).getText());
 		}
+		*/
 	}
-}
+
